@@ -10,4 +10,4 @@
 ## Requirements
 
 * nodejs 6+
-* Plenty of disk space, I see an average of 8kb per tick per room, by default this saves 50,000 ticks. So ~400MB per active room.
+* Plenty of disk space, I see an average of 8kb per tick per room, by default this saves 50,000 ticks. So ~20MB per active room.
