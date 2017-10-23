@@ -20,7 +20,9 @@
   "author": "Adam Shumann",
   "license": "MIT",
   "dependencies": {
+    "aws-sdk": "^2.138.0",
     "bluebird": "^3.5.0",
+    "ini": "^1.3.4",
     "lodash": "^4.17.4",
     "mkdirp": "^0.5.1"
   }
