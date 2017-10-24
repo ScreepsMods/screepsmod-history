@@ -25,6 +25,7 @@ All options and defaults are listed below
 * accessKeyId: 
 * secretAccessKey: 
 * bucket: 
+* path: history
 
 
 ## Examples
@@ -42,6 +43,7 @@ apiVersion = 'latest'
 accessKeyId = 'my-aws-access-key-id'
 secretAccessKey = 'my-aws-secret-access-key'
 bucket = 'my-bucket'
+path = 'my-custom-path'
 ```
 
 ### ENV Method
