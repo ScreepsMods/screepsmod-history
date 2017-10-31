@@ -12,6 +12,9 @@
 * nodejs 6+
 * Plenty of disk space, I see an average of 8kb per tick per room, by default this saves 200,000 ticks. So ~20MB per active room.
 
+## Warning
+Currently with AWS mode this produces a lot of PUT requests, this can easily become very expensive. 
+For that reason, AWS mode is currently not recommended
 
 ## Configuration
 
