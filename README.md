@@ -9,7 +9,7 @@
 
 ## Requirements
 
-* nodejs 8+
+* nodejs 10+
 * Plenty of disk space, I see an average of 8kb per tick per room, by default this saves 200,000 ticks. So ~20MB per active room.
 
 ## Warning
@@ -23,7 +23,7 @@ All options and defaults are listed below
 ### History
 
 * historyChunkSize: 20 (Number of ticks per history file)
-* mode: file (valid values are `file` and `aws`)
+* mode: sqlite (valid values are `file`, `aws`, and `sqlite`)
 * region: us-east-1
 * apiVersion: latest
 * accessKeyId: 
