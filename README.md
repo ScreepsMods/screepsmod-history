@@ -22,7 +22,7 @@ All options and defaults are listed below
 
 ### History
 
-* historyChunkSize: 20 (Number of ticks per history file)
+* historyChunkSize: 100 (Number of ticks per history file)
 * mode: sqlite (valid values are `file`, `aws`, and `sqlite`)
 * region: us-east-1
 * apiVersion: latest
@@ -36,12 +36,12 @@ All options and defaults are listed below
 
 Config can be applied in several ways:
 
-### .screepsrc (Recommended)
+### .screepsrc
 
 Add to the bottom of your .screepsrc file
 ```
 [history]
-historyChunkSize = 20
+historyChunkSize = 100
 mode = 'aws'
 region = 'us-east-1'
 apiVersion = 'latest'
@@ -53,7 +53,7 @@ path = 'my-custom-path'
 
 ### ENV Method
 
-Please note that this method only works when launching modules directly, when launched via the default launcher they will be ignored.
+Please note that this method only works when launching modules directly or with screeps-launcher, when launched via the default launcher they will be ignored.
 
 ```
 HISTORY_MODE='aws'
