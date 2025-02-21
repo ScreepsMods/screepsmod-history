@@ -1,0 +1,19 @@
+# https://docs.github.com/en/actions/use-cases-and-examples/building-and-testing/building-and-testing-nodejs
+
+name: ci
+on: [push, pull_request]
+jobs:
+  ci:
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: ['10.x', '18.x', '20.x', '22.x']
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: yarn lint  # This fails with: 'standard' is not recognized as an internal or external command, operable program or batch file.
+      continue-on-error: true
+    - run: yarn test  # "Error: no test specified" 
