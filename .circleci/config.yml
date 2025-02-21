@@ -1,9 +1,14 @@
 version: 2
 jobs:
   build:
+    matrix:
+      parameters:
+        # TODO: Remove the deprecated legacy circleci/x image
+        # https://discuss.circleci.com/t/legacy-convenience-image-deprecation/41034
+        image: [ "circleci/node:10", "cimg/node:10", "cimg/node:22"]
     working_directory: ~/repo
     docker:
-      - image: circleci/node:10
+      - image: << parameters.image >>
     steps:
       - checkout
       - restore_cache:
