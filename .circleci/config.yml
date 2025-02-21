@@ -8,7 +8,7 @@ jobs:
         image: [ "circleci/node:10", "cimg/node:10", "cimg/node:22"]
     working_directory: ~/repo
     docker:
-      - image: image
+      - image: << parameters.image >>
     steps:
       - checkout
       - restore_cache:
