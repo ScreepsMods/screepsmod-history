@@ -1,9 +1,12 @@
 version: 2
 jobs:
   build:
+    matrix:
+      parameters:
+        node-version: ["10", "22"]
     working_directory: ~/repo
     docker:
-      - image: circleci/node:10
+      - image: circleci/node:<< parameters.node-version >>
     steps:
       - checkout
       - restore_cache:
