@@ -14,6 +14,7 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
+    - run: yarn install --check-files
     - run: yarn add standard  # Fails with: `eslint-plugin-n needs Node.js >= 12` or 'gyp info using node-gyp@3.8.0' on modern Node.js.
       continue-on-error: true
     - run: npm install standard --global
