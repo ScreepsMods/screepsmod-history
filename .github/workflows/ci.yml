@@ -14,6 +14,7 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
+    - run: yarn add standard
     - run: yarn lint  # This fails with: 'standard' is not recognized as an internal or external command, operable program or batch file.
       continue-on-error: true
     - run: yarn test  # "Error: no test specified" 
