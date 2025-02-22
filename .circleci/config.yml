@@ -1,41 +1,30 @@
-version: 2
+
+# https://circleci.com/docs/language-javascript
+# https://circleci.com/developer/orbs/orb/circleci/node
+
+version: 2.1
+orbs:
+  node: circleci/node@7.1.0
+
 jobs:
-  build:
-    working_directory: ~/repo
-    docker:
-      - image: circleci/node:10
+  build_and_test:
+    executor: node/default
     steps:
       - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+      - node/install-packages:
+          pkg-manager: yarn
       - run:
-          name: install
-          command: yarn install
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
-      - run:
-          name: lint
-          command: yarn lint
-      - run:
-          name: test
           command: yarn test
-      - store_artifacts:
-          path: test-results.xml
-          prefix: tests
+      - run:
+          command: yarn build
       - store_test_results:
-          path: test-results.xml
-      - deploy:
-          name: Maybe Deploy
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-              npm run 2npm
-            fi
+          path: test-results
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+
 workflows:
-  version: 2
-  build:
+  test_my_app:
     jobs:
-    - build:
-        context: org-global
+      - build_and_test
