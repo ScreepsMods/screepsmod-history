@@ -18,5 +18,5 @@ jobs:
       continue-on-error: true
     - run: npm install standard --global
     - run: yarn lint  # Fails with: 'standard' is not recognized as an internal or external command, operable program or batch file.
-      continue-on-error: true
+      # continue-on-error: true
     - run: yarn test  # "Error: no test specified" 
